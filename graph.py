@@ -1,11 +1,8 @@
 import argparse
 import networkx as nx
 import matplotlib.pyplot as plt
-import numpy as np
-import os
-import math
 
-# Argument parser to handle the 
+# Argument parser using argparse to handle the 
 def parse_arguments():
     return
 
