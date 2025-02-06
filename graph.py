@@ -24,7 +24,12 @@ def read_graph(file_name):
 
 # Otherwise, create a random Erdos-Renyi Graph
 def create_random_graph(n, c):
-    return
+    probability = (c * math.log(n)) / n
+    G = nx.erdos_renyi_graph(n, probability)
+
+    # Relabel nodes as strings
+    G = nx.relabel_nodes(G, {i: str(i) for i in G.nodes()})
+    return G
 
 # Find shortest path using Breadth First Search
 def compute_shortest_path(G, start_node):
