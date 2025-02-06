@@ -26,14 +26,20 @@ def read_graph(file_name):
 def create_random_graph(n, c):
     probability = (c * math.log(n)) / n
     G = nx.erdos_renyi_graph(n, probability)
-
-    # Relabel nodes as strings
     G = nx.relabel_nodes(G, {i: str(i) for i in G.nodes()})
     return G
 
 # Find shortest path using Breadth First Search
 def compute_shortest_path(G, start_node):
-    return
+    if start_node not in G:
+        print(f"Error: Node '{start_node}' not found in the graph.")
+        exit(1)
+    
+    paths = nx.single_source_shortest_path(G, start_node)
+    for target, path in paths.items():
+        print(f"Shortest path from {start_node} to {target}: {path}")
+    
+    return paths
 
 # Using matplotlib to plot the graph and visualise the data
 def plot_graph(G, path = None):
