@@ -43,8 +43,19 @@ def compute_shortest_path(G, start_node):
 
 # Using matplotlib to plot the graph and visualise the data
 def plot_graph(G, path = None):
-    return
+    plt.figure(figsize=(10, 8))
+    pos = nx.spring_layout(G)  # Positioning for visualization
+    nx.draw(G, pos, with_labels=True, node_color='lightblue', edge_color='gray', node_size=500)
+
+    if path:
+        # Highlight BFS paths
+        for path in path.values():
+            edges = list(zip(path, path[1:]))  # Create edges from BFS paths
+            nx.draw_networkx_edges(G, pos, edgelist=edges, edge_color='red', width=2)
+    
+    plt.show()
 
 # Save graph into output file
 def save_graph(G, output):
     return
+
