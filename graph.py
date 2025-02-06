@@ -57,5 +57,6 @@ def plot_graph(G, path = None):
 
 # Save graph into output file
 def save_graph(G, output):
-    return
+    nx.write_gml(G, output)
+    print(f"Graph saved to {output}")
 
